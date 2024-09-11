@@ -1,9 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
+<% if @user.status == true %>
+<span class="badge rounded-pill text-bg-info">User is active</span> <hr/>
 <%= render @user %>
+<%= button_to "Set status inactive", change_status_path, params: {:id => @user.id, :status => false} %>
+<% elsif @user.status == false %>
+<span class="badge rounded-pill text-bg-info">User is inactive</span> <hr/>
+<%= render @user %>
+<%= button_to "Set status active", change_status_path, params: {id: @user.id, status: true} %>
+<% end %>
 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Destroy this user", @user, method: :delete %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Back to users", users_path %> |
+  <%= link_to "Home", root_path %>
 </div>

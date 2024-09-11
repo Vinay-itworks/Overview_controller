@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "search", to: "users#search", as: :search
+  # get "users/search", to: "users#search", as: :search
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,4 +14,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "users#home"
+  # post "show_users", to: "users#index"
+  post "change_status", to: "users#change_status"
+
+  resources :users do
+    resources :skills
+  end
 end

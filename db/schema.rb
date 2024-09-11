@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_10_072359) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_11_130443) do
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills_users", id: false, force: :cascade do |t|
+    t.integer "skill_id", null: false
+    t.integer "user_id", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -20,5 +32,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_10_072359) do
     t.text "current_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
   end
 end

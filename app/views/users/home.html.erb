@@ -1,0 +1,14 @@
+<% content_for :title, "Home" %>
+<br/>
+<p> Active users : <%= @active_user %> <%= link_to "See active users", users_path(status: "true") %></p>
+
+<p> Inactive users : <%= @inactive_user %> <%= link_to "See inactive users", users_path(status: "false") %></p>
+
+<p>
+  <%= button_to "See active users", users_path, params: {status: true}, method: :get %> <br/>
+  <%= button_to "See inactive users", users_path, params: {status: false}, method: :get %>
+</p>
+
+  <hr/>
+  <%= link_to "See all users", users_path %>
+

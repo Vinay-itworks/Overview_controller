@@ -14,7 +14,7 @@
  *= require_self
  */
 
- body {
+ div.main {
   max-width: max-content;
   margin: auto;
   }
