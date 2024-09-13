@@ -1,3 +1,5 @@
+<% content_for :title, "User skills" %>
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Skills</h1>
@@ -6,9 +8,9 @@
   <% @skills.each do |skill| %>
     <%= render skill %>
     <p>
-      <%= link_to "Show this skill", user_skill_path %>
+      <%= link_to "Show this skill", user_skill_path(id: skill.id) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New skill", new_skill_path %>
+<%= link_to "New skill", new_user_skill_path %>

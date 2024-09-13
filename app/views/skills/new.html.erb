@@ -1,0 +1,11 @@
+<% content_for :title, "New skill" %>
+
+<h1>New skill</h1>
+
+<%= render "form", user: @user, skill: @skill %>
+
+<br>
+
+<div>
+  <%= link_to "Back to skill", users_path %>
+</div>

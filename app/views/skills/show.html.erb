@@ -1,0 +1,9 @@
+<%= render @skill %>
+<hr/>
+<%= link_to "Show User", user_path(params["user_id"]) %>
+<hr/>
+<div>
+  <%= link_to "Edit this user", edit_user_path(params["user_id"]) %> |
+  <%= link_to "Back to users", users_path %> |
+  <%= link_to "Home", root_path %>
+</div>

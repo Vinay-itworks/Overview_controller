@@ -24,13 +24,13 @@ class UsersController < ApplicationController
       @users = @users.where("lower(first_name) LIKE '%#{params["query"].downcase}%'").
             or(User.where("lower(last_name) LIKE '%#{params["query"].downcase}%'"))
     end
-    render "users/index" 
+    render "users/index"
   end
 
   # GET /users or /users.json
   def index
     puts "Params #{params}"
-    @users = User.all.select(:first_name, :last_name, :id)
+    @users = User.all#.select(:first_name, :last_name, :id)
     if params["status"] == "false"
       @users = @users.where(status: false)
     elsif params["status"] == "true"
@@ -53,6 +53,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    puts "Params #{params}"
+
     @user = User.new(user_params)
 
     respond_to do |format|
