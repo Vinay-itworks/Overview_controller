@@ -11,6 +11,7 @@
         <strong>User Name:</strong>
         <%= "#{user.first_name} #{user.last_name} ".ljust(25, "_") %>
         <%= link_to "Show this user", user %>
+      |<span class="badge text-bg-secondary">User Updated : <%= time_ago_in_words(user.updated_at) %></span>
       </p>
       <hr/>
     </div>

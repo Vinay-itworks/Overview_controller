@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionView::Helpers::DateHelper
   before_action :set_user, only: %i[ show edit update destroy ]
   # before_action :check_status
   # around_action :check_user
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.all.select(:first_name, :last_name, :id)
+    @users = User.all
     if params["commit"] == "Search"
       @users = @users.where("lower(first_name) LIKE '%#{params["query"].downcase}%'").
             or(User.where("lower(last_name) LIKE '%#{params["query"].downcase}%'"))
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     puts "Params #{params}"
-    @users = User.all#.select(:first_name, :last_name, :id)
+    @users = User.all.order(updated_at: :desc)#.select(:first_name, :last_name, :id)
     if params["status"] == "false"
       @users = @users.where(status: false)
     elsif params["status"] == "true"

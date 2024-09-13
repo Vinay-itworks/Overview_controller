@@ -22,3 +22,14 @@
                   size: "500x500",
                   
                   controls: true %>
+
+
+<hr/>
+<%= picture_tag "award-fill.svg", "spongebob-poster.png", "icon.png" %>
+<hr/>
+<%= picture_tag { 
+  tag(:source, :srcset => image_path("award-fill.svg"), :media => "(max-width: 600px)") + 
+  tag(:source, :srcset => image_path("spongebob-poster.png"), :media => "(max-width: 1000px)") + 
+  image_tag("pngtree.jpg", :alt => "Image") } %>
+
+<%= mail_to "vinay.poul@infotech.works", cc: "thepoulvinay@gmail.com", subject: "This is an example email" %>

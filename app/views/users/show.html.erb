@@ -1,15 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
 <% if @user.status == true %>
-<span class="badge rounded-pill text-bg-success">User is active</span> <hr/>
-<%= render @user %>
-<%= button_to "Set status inactive", change_status_path, params: {:id => @user.id, :status => false} %>
+  <span class="badge rounded-pill text-bg-success">User is active</span> 
+  <%= render @user %>
+  <%= button_to "Set status inactive", change_status_path, params: {:id => @user.id, :status => false} %>
 <% elsif @user.status == false %>
-<span class="badge rounded-pill text-bg-warning">User is inactive</span> <hr/>
-<%= render @user %>
-<%= button_to "Set status active", change_status_path, params: {id: @user.id, status: true} %>
+  <span class="badge rounded-pill text-bg-warning">User is inactive</span>
+  <%= render @user %>
+  <%= button_to "Set status active", change_status_path, params: {id: @user.id, status: true} %>
 <% end %>
 <hr/>
+
+<br/>
 <%= link_to "Show user skill", user_skills_path(@user) %>
 <hr/>
 <div>

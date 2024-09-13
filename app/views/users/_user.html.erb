@@ -1,3 +1,8 @@
+<span class="badge text-bg-secondary" >
+  User Created : <%= time_ago_in_words(@user.created_at) %> | 
+  User Updated : <%= time_ago_in_words(@user.updated_at) %>
+</span>
+<hr/>
 <div id="<%= dom_id user %>">
   <p>
     <strong>First name:</strong>
@@ -21,7 +26,7 @@
 
   <p>
     <strong>Contact:</strong>
-    <%= user.contact %>
+    <%= number_to_phone(user.contact) %>
   </p>
 
   <p>
